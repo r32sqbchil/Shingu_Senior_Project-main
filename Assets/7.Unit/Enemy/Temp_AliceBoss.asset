@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c2c0b1638d628b48aa62ffee1ed9eb9, type: 3}
+  m_Name: Temp_AliceBoss
+  m_EditorClassIdentifier: 
+  unitName: "\uC5D8\uB9AC\uC2A4"
+  unitImage: {fileID: 0}
+  unitPrefab: {fileID: 7217191776433308316, guid: c20cd3a19ade954408127b2976e49a08, type: 3}
+  moonEnergy: 0
+  spawnCoolTime: 0
+  attackStat: 0
+  healStat: 0
+  donMoveDistance: 0
+  donTowerMoveDistance: 0
+  attackRangeStat: 0
+  criRate: 0
+  criDamage: 0
+  pushRange: 0
+  pushResist: 0
+  attackDelayStat: 0
+  speedStat: 0
+  hpStat: 0
+  type: 
+  mpGet: 0
+  attackType: 
+  bossType: 
+  skillCoolTime: 0
+  skillTxt: 
+  skillIndex: 0
+  skillEffect: 0

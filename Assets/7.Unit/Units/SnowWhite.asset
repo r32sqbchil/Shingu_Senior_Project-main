@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c2c0b1638d628b48aa62ffee1ed9eb9, type: 3}
+  m_Name: SnowWhite
+  m_EditorClassIdentifier: 
+  unitName: "\uBC31\uC124"
+  unitImage: {fileID: 21300000, guid: f2df0bcd64b41374c8d031092b35cba2, type: 3}
+  unitPrefab: {fileID: 1609125915385617593, guid: c109b82d028900444b4de21288c395fe, type: 3}
+  moonEnergy: 40
+  spawnCoolTime: 40
+  attackStat: 0
+  healStat: 65
+  donMoveDistance: 9
+  donTowerMoveDistance: 9
+  attackRangeStat: 10
+  criRate: 0
+  criDamage: 0
+  pushRange: 5
+  pushResist: 4
+  attackDelayStat: 4
+  speedStat: 5
+  hpStat: 110
+  type: Healer
+  mpGet: 0
+  attackType: X
+  bossType: 
+  skillCoolTime: 12
+  skillTxt: "Hp\uAC00 \uAC00\uC7A5 \uB0AE\uC740 \uC720\uB2DB\uC744 \uB300\uC0C1\uC73C\uB85C
+    \uBC94\uC704\uB97C \uAC00\uC9C4 \uC0AC\uACFC\uBC15\uC2A4\uB97C \uB358\uC9C4\uB2E4
+    \uC9C0\uC18D\uC801\uC778 \uD790\uC744 \uC900\uB2E4"
+  skillIndex: 5
+  skillEffect: 4
