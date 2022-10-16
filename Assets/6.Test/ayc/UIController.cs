@@ -28,7 +28,7 @@ public class UIController : MonoBehaviour
     private string[] blankTexts;
 
     public Text Text_Nickname;
-    public GameObject overNicknameLength;
+    
 
     //추가
     public GameObject title;
@@ -43,8 +43,6 @@ public class UIController : MonoBehaviour
         btn[4].onClick.AddListener(() => SetController(true));
         btn[5].onClick.AddListener(() => FadeToLevelSceneChange(1));
         btn[6].onClick.AddListener(() => FadeToLevelSceneChange(1));
-        btn[7].onClick.AddListener(() => FadeToLevelSceneChange(1));
-        btn[8].onClick.AddListener(() => FadeToLevelSceneChange(1));
 
         if (Data.Instance.isLogIn == true)
         {
@@ -56,6 +54,8 @@ public class UIController : MonoBehaviour
 
     // Fade
     public InputField tempInputField_Nickname;
+
+
     public void FadeToLevel(int levelIndex)
     {
         switch (Text_Nickname.text)
@@ -105,18 +105,19 @@ public class UIController : MonoBehaviour
     }
 
     private bool temp_coroutineCheck = false;
+    public GameObject overNicknameLength;
     IEnumerator Temp_OverNicknameLength()
     {
-
         if (temp_coroutineCheck == false)
         {
             temp_coroutineCheck = true;
             overNicknameLength.SetActive(true);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1f);
             overNicknameLength.SetActive(false);
             temp_coroutineCheck = false;
         }
     }
+
     public void OnFadeComplete(int _int)
     {
         _int = levelToLoad;

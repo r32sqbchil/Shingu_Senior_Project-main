@@ -41,8 +41,6 @@ public class WorldMapUI : MonoBehaviour
         worldMapBtn[4].onClick.AddListener(() => PopUpController(1, false));
         worldMapBtn[5].onClick.AddListener(() => PopUpController(3, false));
         worldMapBtn[6].onClick.AddListener(() => PopUpController(4, false));
-        worldMapBtn[7].onClick.AddListener(() => PopUpController(5, false));
-        worldMapBtn[8].onClick.AddListener(() => PopUpController(6, false));
     }
 
     // Pop-Up On = (_bool == true)

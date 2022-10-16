@@ -47,6 +47,7 @@ public class CameraRay : Singleton<CameraRay>
     public Material bb;
 
     public GameObject[] castle;
+    public GameObject[] yet_castle;
 
     // 건설된 건물들을 저장할 리스트
     public List<GameObject> buildings = new List<GameObject>();
@@ -141,6 +142,10 @@ public class CameraRay : Singleton<CameraRay>
                     TempUI_InteractionPrevent.SetActive(true);
                     CameraMove.Instance.isMove = false;
                     castle[int.Parse(hit.transform.name)].SetActive(true);
+                }
+                if(hit.transform.CompareTag("Yet_Castle"))
+                {
+                    yet_castle[int.Parse(hit.transform.name)].SetActive(true);
                 }
             }
         }

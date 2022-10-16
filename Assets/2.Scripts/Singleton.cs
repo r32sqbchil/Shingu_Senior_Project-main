@@ -38,14 +38,4 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
             DontDestroyOnLoad(gameObject);
         }
     }
-
-    public virtual void Init()
-    {
-    }
-
-    protected virtual void OnDestroy()
-    {
-        //Debug.Log(typeof(T) + " is destroyed.");
-        instance = null;
-    }
 }
