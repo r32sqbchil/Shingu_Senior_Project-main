@@ -14,8 +14,9 @@ TagManager:
   - Sell
   - Resource
   - Manufacture
-  - Castle
   - Yet_Castle
+  - Castle1
+  - Castle0
   layers:
   - Default
   - TransparentFX

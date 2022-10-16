@@ -19,24 +19,26 @@ public class ResourceSystem : Singleton<ResourceSystem>
 
     private void Start()
     {
-        for (int i = 0; i < resourceElements.Count; i++)
+        if (!Data.Instance.isLogIn)
         {
-            resourceElements[i].resourceName = ((ResourceType)i).ToString();
-            resourceElements[i].resourceValue = 0;
+            GetResource(ResourceType.childlikeEnergy, 1000);
         }
-        GetResource(ResourceType.childlikeEnergy, 1000);
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.X))
+        //if (Input.GetKeyDown(KeyCode.X))
+        //{
+        //    for (int i = 0; i < resourceElements.Count; i++)
+        //    {
+        //        resourceElements[i].resourceValue = 1000;
+        //    }
+        //    GetResource(ResourceType.childlikeEnergy, 100000);
+        //    InsertResource();
+        //}
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            for (int i = 0; i < resourceElements.Count; i++)
-            {
-                resourceElements[i].resourceValue = 1000;
-            }
-            GetResource(ResourceType.childlikeEnergy, 100000);
-            InsertResource();
+            GetResource(ResourceType.childlikeEnergy, 1000);
         }
     }
 

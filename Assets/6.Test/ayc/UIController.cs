@@ -42,7 +42,6 @@ public class UIController : MonoBehaviour
         btn[3].onClick.AddListener(() => SetController(true));
         btn[4].onClick.AddListener(() => SetController(true));
         btn[5].onClick.AddListener(() => FadeToLevelSceneChange(1));
-        btn[6].onClick.AddListener(() => FadeToLevelSceneChange(1));
 
         if (Data.Instance.isLogIn == true)
         {
@@ -135,6 +134,17 @@ public class UIController : MonoBehaviour
 
     public void FadeToLevelSceneChange(int levelIndex)
     {
+        if (ResourceSystem.Instance.resourceElements[0].resourceValue >= 500)
+        {
+            ResourceSystem.Instance.resourceElements[0].resourceValue -= 500;
+            ResourceSystem.Instance.GetResource(ResourceType.childlikeEnergy, -500);
+            ResourceSystem.Instance.InsertResource();
+        }
+        else
+        {
+            Debug.Log(ResourceSystem.Instance.resourceElements[0].resourceValue);
+            return;
+        }
         levelToLoad = levelIndex;
         animator.SetTrigger("FadeOutSceneChange");
 

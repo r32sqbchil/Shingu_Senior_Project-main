@@ -46,8 +46,8 @@ public class CameraRay : Singleton<CameraRay>
     public Material aa;
     public Material bb;
 
-    public GameObject[] castle;
-    public GameObject yet_castle;
+    public GameObject castle;
+    
 
     // 건설된 건물들을 저장할 리스트
     public List<GameObject> buildings = new List<GameObject>();
@@ -98,16 +98,46 @@ public class CameraRay : Singleton<CameraRay>
     }
 
     private bool temp_coroutineCheck = false;
+    public GameObject Parent_warningText;
+    public Text warningText;
     IEnumerator Temp_YetCastle()
     {
         if (temp_coroutineCheck == false)
         {
             temp_coroutineCheck = true;
-            yet_castle.SetActive(true);
+            Parent_warningText.SetActive(true);
+            warningText.text = "개발 중인 지역이에요!";
             yield return new WaitForSeconds(1f);
-            yet_castle.SetActive(false);
+            Parent_warningText.SetActive(false);
             temp_coroutineCheck = false;
         }
+    }
+    IEnumerator Temp_YetOpenCastle()
+    {
+        if (temp_coroutineCheck == false)
+        {
+            temp_coroutineCheck = true;
+            Parent_warningText.SetActive(true);
+            warningText.text = "미해금된 지역이에요!";
+            yield return new WaitForSeconds(1f);
+            Parent_warningText.SetActive(false);
+            temp_coroutineCheck = false;
+        }
+    }
+
+
+    // 안유찬이 추가함
+    public Text TempText_BossStage;
+    public Image TempImage_Boss;
+
+    public Sprite[] Image_Bosses;
+
+
+    private void DontCameraMove()
+    {
+        TempUI_InteractionPrevent.SetActive(true);
+        CameraMove.Instance.isMove = false;
+        castle.SetActive(true);
     }
     private void OnClick()
     {
@@ -147,18 +177,34 @@ public class CameraRay : Singleton<CameraRay>
                     
                 }
 
-                if(hit.transform.CompareTag("Castle"))
+                if(hit.transform.CompareTag("Castle0"))
                 {
-                    TempUI_InteractionPrevent.SetActive(true);
-                    CameraMove.Instance.isMove = false;
-                    castle[int.Parse(hit.transform.name)].SetActive(true);
+                    TempText_BossStage.text = "피터팬 - 보스 스테이지";
+                    TempImage_Boss.overrideSprite = Image_Bosses[0];
+                    DontCameraMove();
                 }
+
+                if(hit.transform.CompareTag("Castle1"))
+                {
+                    if (Data.Instance.isStage[1] == true)
+                    {
+                        TempText_BossStage.text = "미녀와 야수 - 보스 스테이지";
+                        TempImage_Boss.overrideSprite = Image_Bosses[1];
+                        DontCameraMove();
+                    }
+                    else
+                    {
+                        StartCoroutine(Temp_YetOpenCastle());
+                    }
+                }
+
                 if(hit.transform.CompareTag("Yet_Castle"))
                 {
                     StartCoroutine(Temp_YetCastle());
                 }
             }
         }
+        
         
         if (Physics.Raycast(ray, out hit, float.MaxValue, IgnoreLayerMask))
             return;

@@ -267,6 +267,10 @@ public class Tower : MonoBehaviour
         // 타워를 부셨을 때
         if (towerHp <= 0)
         {
+            ResourceSystem.Instance.resourceElements[0].resourceValue += 15000;
+            ResourceSystem.Instance.GetResource(ResourceType.childlikeEnergy, 15000);
+            ResourceSystem.Instance.InsertResource();
+
             for (int i = 0; i < Data.Instance.isStage.Length; i++)
             {
                 Data.Instance.isStage[i] = false;
