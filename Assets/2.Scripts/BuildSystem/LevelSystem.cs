@@ -18,25 +18,37 @@ public class LevelSystem : Singleton<LevelSystem>
     {
         if(!CameraRay.Instance.isEditing)
         {
-            if(Input.GetKeyDown(KeyCode.U))
+            for(int i=0; i<2; i++)
             {
-                LevelChange(0);
+                LevelChange(i);
             }
 
-            if(Input.GetKeyDown(KeyCode.I))
+            if (Data.Instance.isStage[1])
             {
-                LevelChange(1);
+                for (int i = 2; i < 4; i++)
+                {
+                    LevelChange(i);
+                }
             }
+            //if(Input.GetKeyDown(KeyCode.U))
+            //{
+            //    LevelChange(0);
+            //}
 
-            if(Input.GetKeyDown(KeyCode.O))
-            {
-                LevelChange(2);
-            }
+            //if(Input.GetKeyDown(KeyCode.I))
+            //{
+            //    LevelChange(1);
+            //}
 
-            if(Input.GetKeyDown(KeyCode.P))
-            {
-                LevelChange(3);
-            }
+            //if(Input.GetKeyDown(KeyCode.O))
+            //{
+            //    LevelChange(2);
+            //}
+
+            //if(Input.GetKeyDown(KeyCode.P))
+            //{
+            //    LevelChange(3);
+            //}
         }
     }
 

@@ -49,6 +49,11 @@ public class UIController : MonoBehaviour
             title.SetActive(false);
             worldMap.SetActive(true);
         }
+        //추가
+        for(int i=0; i<ResourceSystem.Instance.resourceElements.Count; i++)
+        {
+            Data.Instance.temp_resourceValue[i] = ResourceSystem.Instance.resourceElements[i].resourceValue;
+        }
     }
 
     // Fade
@@ -104,15 +109,29 @@ public class UIController : MonoBehaviour
     }
 
     private bool temp_coroutineCheck = false;
-    public GameObject overNicknameLength;
+    public GameObject Parent_overNicknameLength;
+    public Text overNicknameLength;
     IEnumerator Temp_OverNicknameLength()
     {
         if (temp_coroutineCheck == false)
         {
             temp_coroutineCheck = true;
-            overNicknameLength.SetActive(true);
+            Parent_overNicknameLength.SetActive(true);
+            overNicknameLength.text = "닉네임은 최소 1글자 이상입니다.";
             yield return new WaitForSeconds(1f);
-            overNicknameLength.SetActive(false);
+            Parent_overNicknameLength.SetActive(false);
+            temp_coroutineCheck = false;
+        }
+    }
+    IEnumerator Temp_NoMoney()
+    {
+        if (temp_coroutineCheck == false)
+        {
+            temp_coroutineCheck = true;
+            Parent_overNicknameLength.SetActive(true);
+            overNicknameLength.text = "돈이 부족합니다.";
+            yield return new WaitForSeconds(1f);
+            Parent_overNicknameLength.SetActive(false);
             temp_coroutineCheck = false;
         }
     }
@@ -131,20 +150,23 @@ public class UIController : MonoBehaviour
     }
 
     // _______________________________________________________
-
+    
     public void FadeToLevelSceneChange(int levelIndex)
     {
-        if (ResourceSystem.Instance.resourceElements[0].resourceValue >= 500)
+        if (Data.Instance.temp_resourceValue[0] >= 500)
         {
-            ResourceSystem.Instance.resourceElements[0].resourceValue -= 500;
-            ResourceSystem.Instance.GetResource(ResourceType.childlikeEnergy, -500);
-            ResourceSystem.Instance.InsertResource();
+            for (int i = 0; i < ResourceSystem.Instance.resourceElements.Count; i++)
+            {
+                Data.Instance.temp_resourceValue[i] = ResourceSystem.Instance.resourceElements[i].resourceValue;
+            }
+            Data.Instance.temp_resourceValue[0] -= 500;
         }
         else
         {
-            Debug.Log(ResourceSystem.Instance.resourceElements[0].resourceValue);
+            StartCoroutine(Temp_NoMoney());
             return;
         }
+        
         levelToLoad = levelIndex;
         animator.SetTrigger("FadeOutSceneChange");
 

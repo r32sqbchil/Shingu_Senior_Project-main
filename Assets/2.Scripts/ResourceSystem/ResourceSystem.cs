@@ -17,29 +17,23 @@ public class ResourceSystem : Singleton<ResourceSystem>
     public GameObject destroyText;
     public List<ResourceDict> resourceElements = new List<ResourceDict>();
 
+
     private void Start()
     {
         if (!Data.Instance.isLogIn)
         {
             GetResource(ResourceType.childlikeEnergy, 1000);
         }
-    }
-
-    void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.X))
-        //{
-        //    for (int i = 0; i < resourceElements.Count; i++)
-        //    {
-        //        resourceElements[i].resourceValue = 1000;
-        //    }
-        //    GetResource(ResourceType.childlikeEnergy, 100000);
-        //    InsertResource();
-        //}
-        if(Input.GetKeyDown(KeyCode.Space))
+        else
         {
-            GetResource(ResourceType.childlikeEnergy, 1000);
+            for (int i = 0; i < resourceElements.Count; i++)
+            {
+                 resourceElements[i].resourceValue = Data.Instance.temp_resourceValue[i];
+            }
         }
+
+        InsertResource();
+
     }
 
     public void GetResource(ResourceType _resourceType, int _int)

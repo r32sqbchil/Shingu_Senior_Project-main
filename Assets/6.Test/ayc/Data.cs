@@ -30,10 +30,6 @@ public class Data : Singleton<Data>
 
     //Ãß°¡
     public bool isLogIn = false;
-    //public void SaveNicknameData()
-    //{
-    //    nicknameBasket = nicknameField.text;
 
-    //    nicknameShow.text = nicknameBasket;
-    //}
+    public int[] temp_resourceValue;
 }
