@@ -12904,9 +12904,7 @@ MonoBehaviour:
   castle:
   - {fileID: 1623350258}
   - {fileID: 1455312746}
-  yet_castle:
-  - {fileID: 1623350256}
-  - {fileID: 1623350256}
+  yet_castle: {fileID: 1623350256}
   buildings: []
 --- !u!114 &927335885
 MonoBehaviour:
@@ -27539,6 +27537,22 @@ PrefabInstance:
       propertyPath: pagePrefab.Array.data[1]
       value: 
       objectReference: {fileID: 1232043003}
+    - target: {fileID: 466264693900560629, guid: 267e6fcf10034564a8c47d937522ea75, type: 3}
+      propertyPath: Color_overNicknameAlpha.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 466264693900560629, guid: 267e6fcf10034564a8c47d937522ea75, type: 3}
+      propertyPath: Color_overNicknameAlpha.Array.data[0].b
+      value: 0.3019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 466264693900560629, guid: 267e6fcf10034564a8c47d937522ea75, type: 3}
+      propertyPath: Color_overNicknameAlpha.Array.data[0].g
+      value: 0.3019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 466264693900560629, guid: 267e6fcf10034564a8c47d937522ea75, type: 3}
+      propertyPath: Color_overNicknameAlpha.Array.data[0].r
+      value: 0.3019608
+      objectReference: {fileID: 0}
     - target: {fileID: 466264693900560630, guid: 267e6fcf10034564a8c47d937522ea75, type: 3}
       propertyPath: m_Pivot.x
       value: 0

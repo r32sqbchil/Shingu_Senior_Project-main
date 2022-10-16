@@ -47,7 +47,7 @@ public class CameraRay : Singleton<CameraRay>
     public Material bb;
 
     public GameObject[] castle;
-    public GameObject[] yet_castle;
+    public GameObject yet_castle;
 
     // 건설된 건물들을 저장할 리스트
     public List<GameObject> buildings = new List<GameObject>();
@@ -97,8 +97,18 @@ public class CameraRay : Singleton<CameraRay>
             OnDrag();
     }
 
-
-
+    private bool temp_coroutineCheck = false;
+    IEnumerator Temp_YetCastle()
+    {
+        if (temp_coroutineCheck == false)
+        {
+            temp_coroutineCheck = true;
+            yet_castle.SetActive(true);
+            yield return new WaitForSeconds(1f);
+            yet_castle.SetActive(false);
+            temp_coroutineCheck = false;
+        }
+    }
     private void OnClick()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -145,7 +155,7 @@ public class CameraRay : Singleton<CameraRay>
                 }
                 if(hit.transform.CompareTag("Yet_Castle"))
                 {
-                    yet_castle[int.Parse(hit.transform.name)].SetActive(true);
+                    StartCoroutine(Temp_YetCastle());
                 }
             }
         }
