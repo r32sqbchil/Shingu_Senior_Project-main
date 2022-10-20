@@ -62,6 +62,7 @@ public class Tower : MonoBehaviour
         towerHp = maxTowerHp;
     }
 
+    public int spawnCycle = 0;
     private void Update()
     {
         if (towerHp <= maxTowerHp / 3)
@@ -69,13 +70,13 @@ public class Tower : MonoBehaviour
             if (isBossSpwan == false)
             {
                 isBossSpwan = true;
-                
+
                 SetSpawnBoss();
             }
         }
-        
+
         towerHpImage.fillAmount = Mathf.Lerp(towerHpImage.fillAmount, towerHp / maxTowerHp, Time.deltaTime * 5f);
-       
+
         if (backHpHit == true)
         {
             backSliderHp.fillAmount = Mathf.Lerp(backSliderHp.fillAmount, towerHpImage.fillAmount, Time.deltaTime * 5f);
@@ -85,24 +86,51 @@ public class Tower : MonoBehaviour
                 backSliderHp.fillAmount = towerHpImage.fillAmount;
             }
         }
-        
+
         if (_stageManager.inStage == true && isDead == false)
         {
-            if (_isSpawn[0] == false)
+            if (_isSpawn[0] == false && spawnCycle == 0 && isSpawnEnemy == false)
             {
-                SpawnMonster(0);
+                StartCoroutine(SpawnCycle(0));
+                //SpawnMonster(0);
+                //spawnCycle++;
             }
 
-            if (_isSpawn[1] == false)
+            if (spawnCycle == 1 && isSpawnEnemy == false)
             {
-                SpawnMonster(1);
+                StartCoroutine(SpawnCycle(1));
+                //SpawnMonster(1);
+                //spawnCycle++;
             }
 
-            if (_isSpawn[2] == false)
+            if (spawnCycle == 2 && isSpawnEnemy == false )
             {
-                SpawnMonster(2);
+                StartCoroutine(SpawnCycle(2));
+                //SpawnMonster(2);
+                //spawnCycle = 0;
             }
         }
+    }
+
+    private bool isSpawnEnemy = false;
+    private IEnumerator SpawnCycle(int num)
+    {
+        isSpawnEnemy = true;
+        Debug.Log("여기까지 됐다");
+        SpawnMonster(num);
+
+        yield return new WaitForSeconds(20f);
+
+        if(spawnCycle != 2)
+        {
+            spawnCycle++;
+
+        }
+
+        else
+            spawnCycle = 0;
+
+        isSpawnEnemy = false;
     }
 
     private void SetSpawnBoss()
