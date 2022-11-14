@@ -132,6 +132,7 @@ public class CameraRay : Singleton<CameraRay>
 
     public Sprite[] Image_Bosses;
 
+    public float resourceRecreateTime;
 
     private void DontCameraMove()
     {
@@ -160,7 +161,7 @@ public class CameraRay : Singleton<CameraRay>
                 if (hit.transform.CompareTag("Resource"))
                 {
                     Building building = hit.transform.gameObject.GetComponent<Building>();
-                    building.StartCoroutine(building.GetResource(300f));
+                    building.StartCoroutine(building.GetResource(resourceRecreateTime));
                 }
 
                 if (hit.transform.CompareTag("Unit"))

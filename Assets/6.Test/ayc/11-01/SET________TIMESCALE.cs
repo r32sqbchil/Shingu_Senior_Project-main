@@ -71,5 +71,9 @@ public class SET________TIMESCALE : Singleton<SET________TIMESCALE>
         {
             Time.timeScale = 3f;
         }
+        else if(Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            Time.timeScale = 10f;
+        }
     }
 }

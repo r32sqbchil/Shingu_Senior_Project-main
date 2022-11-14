@@ -22,7 +22,8 @@ public class Building : MonoBehaviour
     //private string description;
 
     private Collider _collider;
-    private MeshRenderer _mesh;
+
+    private MeshRenderer Mesh_resource_parent;
 
     private Coroutine thisCoroutine;
     private GameObject model;
@@ -40,7 +41,7 @@ public class Building : MonoBehaviour
         maxResource = buildingData.maxResource;
         //description = buildingData.description;e 
         _collider = this.GetComponent<Collider>();
-        _mesh = this.GetComponent<MeshRenderer>();
+        Mesh_resource_parent = this.GetComponent<MeshRenderer>();
         CreateReosource();
     }
 
@@ -133,11 +134,15 @@ public class Building : MonoBehaviour
     public IEnumerator GetResource(float _time)
     {
         ResourceSystem.Instance.GetResource(resourceType, resource);
-        _mesh.enabled = false;
-        _collider.enabled = false;
+        resourceSwitch(false);
         yield return new WaitForSeconds(_time);
-        _mesh.enabled = true;
-        _collider.enabled = true;
+        resourceSwitch(true);
+    }
+
+    private void resourceSwitch(bool _bool)
+    {
+        Mesh_resource_parent.enabled = _bool;
+        _collider.enabled = _bool;
     }
 
     public void GetBuildingResource(Building _gameObject)
