@@ -42,4 +42,5 @@
 - 가져온 영역으로 건물이 격자 위에 올바르게 올라가 있을 때는 초록, 그렇지 않을 때는 빨강으로 타일의 상태를 구분함
 - 올바른 영역일 때 Tilemap.SetTilesBlock을 통해 타일 영역을 채움
 - 3D Grid로 진행하기로 결정해서 삭제
+
 ![image](https://user-images.githubusercontent.com/91232917/229372848-a4c02122-c252-4c79-a714-57f6c09b4db2.png)
