@@ -29,3 +29,4 @@
 - AsynceOperation의 변수인 isDone을 활용하여 로딩이 완료되지 않았을 때 null을 반환하도록 함
 - AsynceOperation의 변수인 progress를 활용하여 Slider의 value값을 실시간으로 바꿔주도록 함
 - 게임 완성 후 로딩창이 필요할만큼 리소스가 크지 않아서 삭제
+![image](https://user-images.githubusercontent.com/91232917/229370678-dc5c9743-6adf-4759-8073-cc1b050a1663.png)
