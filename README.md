@@ -31,11 +31,7 @@
 - 게임 완성 후 로딩창이 필요할만큼 리소스가 크지 않아서 삭제
 ![image](https://user-images.githubusercontent.com/91232917/229370678-dc5c9743-6adf-4759-8073-cc1b050a1663.png)
 ***
-2. 화면 전환 - Fade
-- 코루틴을 활용한 Fade 효과 제작
-- 알파값이 1이 될 때까지 Mathf.Lerp로 부드럽게 alpha값을 바꿔준다
-***
-3. 격자 타일(2D Grid)
+2. 격자 타일(2D Grid)
 - Tilemap을 활용하여 Grid 제작
 - UnityEngine.Tilemaps 참조
 - Tilemap.GetTilesBlock을 통해 타일 영역을 가져옴
@@ -43,3 +39,10 @@
 - 올바른 영역일 때 Tilemap.SetTilesBlock을 통해 타일 영역을 채움
 - 3D Grid로 진행하기로 결정해서 삭제
 ![image](https://user-images.githubusercontent.com/91232917/229374310-cb770318-cf3c-4b1c-aa63-ee7992e0e187.png)
+***
+3. UI 컨트롤러(UI Controller)
+- UI 이벤트들을 인스펙터에서 제어하지 않고, AddListener를 활용해 스크립트로 제어. 한 눈에 보기 편하기 위함
+- Regex.Replace 메서드를 활용하여 age 항목에 숫자값만 입력할 수 있도록 함
+***
+4. 데이터(Data)
+- 싱글톤 패턴을 활용하여 다른 클래스에서 데이터를 받아올 수 있도록 함
